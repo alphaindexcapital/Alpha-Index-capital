@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Index Capital</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+header {
+  padding: 22px 18px;
+  background: #111c30;
+  border-bottom: 1px solid #26354d;
+}
+
+header h2 {
+  margin: 0;
+  color: #60a5fa;
+}
+
+header p {
+  color: #94a3b8;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+main {
+  padding: 20px 16px;
+  max-width: 850px;
+  margin: auto;
+}
+
+h3 { margin-top: 28px; }
+
+.card {
+  background: #152238;
+  border: 1px solid #293b56;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.label {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.balance {
+  font-size: 29px;
+  font-weight: bold;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.demo {
+  color: #fbbf24;
+  font-size: 12px;
+}
+
+.coins {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.coin {
+  background: #152238;
+  padding: 16px 12px;
+  border-radius: 12px;
+  border: 1px solid #293b56;
+  min-width: 0;
+}
+
+.coin p {
+  overflow-wrap: anywhere;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button.secondary {
+  background: #26354d;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #0b1120;
+  color: white;
+  border: 1px solid #40516a;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+td, th {
+  padding: 12px 5px;
+  text-align: left;
+  border-bottom: 1px solid #293b56;
+}
+
+th { color: #94a3b8; }
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+#message {
+  color: #93c5fd;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+@media (max-width: 360px) {
+  .coins { grid-template-columns: 1fr; }
+  .balance { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Alpha Index Capital</h2>
+  <p>Digital Asset Portfolio Dashboard</p>
+</header>
+
+<main>
+
+  <p class="demo">
+    DEMONSTRATION ONLY · SAMPLE DATA
+  </p>
+
+  <section class="card">
+    <p class="label">Total Portfolio Value</p>
+    <div class="balance" id="total">$3,500.00</div>
+    <p class="label">Illustrative balance, not real funds</p>
+  </section>
+
+  <h3>My Assets</h3>
+
+  <section class="coins">
+    <div class="coin">
+      <p>Bitcoin (BTC)</p>
+      <p class="label">Sample balance</p>
+      <strong>0.025 BTC</strong>
+    </div>
+
+    <div class="coin">
+      <p>Ethereum (ETH)</p>
+      <p class="label">Sample balance</p>
+      <strong>0.50 ETH</strong>
+    </div>
+
+    <div class="coin">
+      <p>USDT</p>
+      <p class="label">Sample balance</p>
+      <strong>500 USDT</strong>
+    </div>
+
+    <div class="coin">
+      <p>Account Status</p>
+      <p class="label">Demo account</p>
+      <strong>Test mode</strong>
+    </div>
+  </section>
+
+  <h3>Transactions</h3>
+
+  <section class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Transaction</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="transactions">
+        <tr>
+          <td>BTC deposit</td>
+          <td>0.025 BTC</td>
+          <td>Sample</td>
+        </tr>
+        <tr>
+          <td>ETH deposit</td>
+          <td>0.50 ETH</td>
+          <td>Sample</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h3>Withdrawal Request Demo</h3>
+
+  <section class="card">
+    <p class="label">
+      Test the interface using a sample amount.
+      This will not transfer money or cryptocurrency.
+    </p>
+
+    <input
+      id="amount"
+      type="number"
+      min="0.00000001"
+      step="any"
+      placeholder="Enter sample amount"
+    >
+
+    <button onclick="requestWithdrawal()">
+      Test Withdrawal Request
+    </button>
+
+    <button class="secondary" onclick="resetDemo()">
+      Reset Demo
+    </button>
+
+    <p id="message" aria-live="polite"></p>
+  </section>
+
+</main>
+
+<footer>
+  Alpha Index Capital · Portfolio Demo
+  <p>Sample data only. No real financial services are connected.</p>
+</footer>
+
+<script>
+function requestWithdrawal() {
+  const field = document.getElementById("amount");
+  const amount = Number(field.value);
+  const message = document.getElementById("message");
+
+  if (!field.value || !Number.isFinite(amount) || amount <= 0) {
+    message.textContent = "Enter a valid amount greater than zero.";
+    return;
+  }
+
+  message.textContent =
+    "Demo successful. Your test request was recorded on this page only. " +
+    "No real transaction was created and no funds were transferred.";
+}
+
+function resetDemo() {
+  document.getElementById("amount").value = "";
+  document.getElementById("message").textContent = "";
+}
+</script>
+
+</body>
+</html>
