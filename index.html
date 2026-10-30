@@ -398,13 +398,10 @@ footer a {
     <div class="register">
 
         <form id="registerForm">
-            <<input id="fullName" type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-
-            <input type="tel" placeholder="Phone Number" required>
-
+            <input id="fullName" type="text" placeholder="Full Name" required>
+            <input id="email" type="email" placeholder="Email Address" required>
+            <input id="phone" type="tel" placeholder="Phone Number" required>
             <input type="password" placeholder="Create Password" required>
-
             <button type="submit">Create Account</button>
 
         </form>
@@ -440,5 +437,32 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_KEY
 );
 </script>
+   <script>
+document.getElementById("registerForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const fullName = document.getElementById("fullName").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const password = document.getElementById("password").value;
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+      data: {
+        full_name: fullName,
+        phone: phone
+      }
+    }
+  });
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("Registration successful! Please check your email to confirm your account.");
+  }
+});
+</script> 
 </body>
 </html>
