@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Index Capital | Digital Markets</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07111f;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background: #0c1b2d;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1b3047;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #32c7a0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #32c7a0;
+}
+
+.hero {
+    padding: 100px 7%;
+    background: linear-gradient(120deg, #07111f, #123653);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #32c7a0;
+}
+
+.hero p {
+    color: #b8c6d6;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #32c7a0;
+    color: #07111f;
+    padding: 14px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #23a987;
+}
+
+.hero-box {
+    background: #10243a;
+    border: 1px solid #25435e;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+}
+
+.hero-box h3 {
+    color: #32c7a0;
+    margin-bottom: 15px;
+}
+
+.hero-box p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+section {
+    padding: 75px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #aab8c8;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.market-card {
+    background: #10243a;
+    padding: 25px;
+    border: 1px solid #25435e;
+    border-radius: 10px;
+}
+
+.market-card h3 {
+    color: #32c7a0;
+    margin-bottom: 10px;
+}
+
+.market-card p {
+    color: #aab8c8;
+    font-size: 14px;
+}
+
+.features {
+    background: #0c1b2d;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.feature {
+    padding: 25px;
+    background: #10243a;
+    border-radius: 10px;
+    border: 1px solid #25435e;
+}
+
+.feature h3 {
+    color: #32c7a0;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    color: #b8c6d6;
+}
+
+.account {
+    text-align: center;
+    background: linear-gradient(120deg, #10243a, #07111f);
+}
+
+.account p {
+    color: #b8c6d6;
+    margin: 15px 0 25px;
+}
+
+.register {
+    max-width: 500px;
+    margin: auto;
+    background: #10243a;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #25435e;
+}
+
+.register input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background: #07111f;
+    border: 1px solid #34506a;
+    color: white;
+    border-radius: 5px;
+}
+
+.register button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    background: #32c7a0;
+    color: #07111f;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.notice {
+    color: #aab8c8;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+footer {
+    background: #050c16;
+    text-align: center;
+    padding: 30px 7%;
+    color: #899bad;
+    font-size: 13px;
+}
+
+footer a {
+    color: #32c7a0;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 65px 7%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-box {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ALPHA INDEX CAPITAL</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#markets">Markets</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#register">Register</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <h1>
+            Explore the Future of
+            <span>Digital Markets</span>
+        </h1>
+
+        <p>
+            Access market information, explore digital financial
+            opportunities and manage your financial journey
+            with Alpha Index Capital.
+        </p>
+
+        <a href="#register" class="btn">Get Started</a>
+    </div>
+
+    <div class="hero-box">
+        <h3>Alpha Market Access</h3>
+        <p>Digital currencies</p>
+        <p>Forex markets</p>
+        <p>Global financial markets</p>
+        <p>Market analysis</p>
+    </div>
+
+</section>
+
+<section id="markets">
+
+    <div class="section-title">
+        <h2>Explore Financial Markets</h2>
+        <p>Discover different markets and their opportunities.</p>
+    </div>
+
+    <div class="market-grid">
+
+        <div class="market-card">
+            <h3>Bitcoin</h3>
+            <p>Explore Bitcoin market information and price movements.</p>
+        </div>
+
+        <div class="market-card">
+            <h3>Ethereum</h3>
+            <p>Follow Ethereum and developments in digital finance.</p>
+        </div>
+
+        <div class="market-card">
+            <h3>Forex</h3>
+            <p>Explore international currency markets.</p>
+        </div>
+
+        <div class="market-card">
+            <h3>Global Markets</h3>
+            <p>Learn about stocks, commodities and financial markets.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features" id="services">
+
+    <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Tools and information for your financial journey.</p>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature">
+            <h3>Market Analysis</h3>
+            <p>Access market research and financial insights.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Portfolio Management</h3>
+            <p>Organize and monitor your financial assets.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Digital Finance</h3>
+            <p>Explore the changing world of digital financial systems.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Account Access</h3>
+            <p>Explore your account interface and platform features.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="section-title">
+        <h2>About Alpha Index Capital</h2>
+
+        <p>
+            Alpha Index Capital is focused on providing access
+            to financial information and digital market resources.
+            Our goal is to make financial market information
+            easier to understand and explore.
+        </p>
+    </div>
+
+</section>
+
+<section class="account" id="register">
+
+    <div class="section-title">
+        <h2>Create Your Account</h2>
+        <p>Registration interface preview.</p>
+    </div>
+
+    <div class="register">
+
+        <form onsubmit="event.preventDefault(); alert('Registration is not yet connected to a secure account system.');">
+
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="email" placeholder="Email Address" required>
+
+            <input type="tel" placeholder="Phone Number" required>
+
+            <input type="password" placeholder="Create Password" required>
+
+            <button type="submit">Create Account</button>
+
+        </form>
+
+        <p class="notice">
+            This is a demonstration form. Account creation
+            requires a secure backend before accepting users.
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>© 2026 Alpha Index Capital. All Rights Reserved.</p>
+
+    <p>
+        Financial markets involve risk. No profits or returns
+        are guaranteed. This website does not currently execute trades.
+    </p>
+
+</footer>
+
+</body>
+</html>
